@@ -1,8 +1,9 @@
 public class PlayerCharacter {
     private static int y = 0;
+    private static int x = 0;
 
     public static int getX() {
-        return 0;
+        return x;
     }
 
     public static int getY() {
@@ -11,8 +12,21 @@ public class PlayerCharacter {
 
     public static void move(String key) {
         switch (key) {
-            case "W" : y++;
-            break;
+            case "W" :
+                y++;
+                break;
+
+            case "S" :
+                y--;
+                break;
+
+            case "D" :
+                x++;
+                break;
+
+            case "A" :
+                x--;
+                break;
         }
     }
 }
