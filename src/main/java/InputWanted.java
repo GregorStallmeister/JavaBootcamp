@@ -4,7 +4,7 @@ public class InputWanted {
 
     public static  void main (String[] args) {
         Scanner inputTaker = new Scanner(System.in);
-        String name = "";
+        String name;
 
         System.out.println("Please enter your name:");
         name = inputTaker.nextLine();
