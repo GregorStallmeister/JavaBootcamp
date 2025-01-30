@@ -16,6 +16,7 @@ public class PlayerCharacterTest {
         assertEquals(expected, actual);
     }
 
+    /**
     @Test
     public void testGetYExpected0 () {
         // given
@@ -26,5 +27,20 @@ public class PlayerCharacterTest {
 
         // then
         assertEquals(expected, actual);
+    }
+     */
+
+    @Test
+    public void moveExpectedYis1WhenGivenW () {
+        // given
+        String param = "W";
+        int expectedY = 1;
+
+        // when
+        PlayerCharacter.move("W");
+        int actualY = PlayerCharacter.getY();
+
+        // then
+        assertEquals(expectedY, actualY);
     }
 }
