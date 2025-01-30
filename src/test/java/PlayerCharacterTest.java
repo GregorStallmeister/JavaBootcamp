@@ -14,7 +14,7 @@ public class PlayerCharacterTest {
      //   int actual = PlayerCharacter.getX();
 
         // then
-        assertEquals(expected, actual);
+        // assertEquals(expected, actual);
    // }
 
 
