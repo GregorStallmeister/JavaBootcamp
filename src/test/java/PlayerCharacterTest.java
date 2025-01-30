@@ -17,7 +17,7 @@ public class PlayerCharacterTest {
     }
 
     /**
-    @Test
+    // @Test
     public void testGetYExpected0 () {
         // given
         int expected = 0;
@@ -37,7 +37,7 @@ public class PlayerCharacterTest {
         int expectedY = 1;
 
         // when
-        PlayerCharacter.move("W");
+        PlayerCharacter.move(param);
         int actualY = PlayerCharacter.getY();
 
         // then
