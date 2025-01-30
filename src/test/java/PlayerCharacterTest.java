@@ -1,35 +1,44 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlayerCharacterTest {
 
+    @BeforeEach
+    public void cleanAll() {
+        PlayerCharacter.setX(0);
+        PlayerCharacter.setY(0);
+    }
 
-    // @Test
- //   public void testGetXExpected0 () {
+    // (Only!) with the @BeforeEach function also the following "initial" test always works
+     @Test
+    public void testGetXExpected0 () {
         // given
-   //     int expected = 0;
+
+        int expected = 0;
 
         // when
-     //   int actual = PlayerCharacter.getX();
+        int actual = PlayerCharacter.getX();
 
         // then
-        // assertEquals(expected, actual);
-   // }
+         assertEquals(expected, actual);
+    }
 
 
 
-    // @Test
- //   public void testGetYExpected0 () {
+    // (Only!) with the @BeforeEach function also the following "initial" test always works
+    @Test
+    public void testGetYExpected0 () {
         // given
-   //     int expected = 0;
+        int expected = 0;
 
         // when
-     //   int actual = PlayerCharacter.getY();
+        int actual = PlayerCharacter.getY();
 
         // then
-       // assertEquals(expected, actual);
-    //}
+        assertEquals(expected, actual);
+    }
 
 
     @Test
@@ -45,6 +54,21 @@ public class PlayerCharacterTest {
 
         // then
         assertEquals(expectedY, actualY);
+    }
+
+    // (Only!) with the @BeforeEach function also the following simple test always works
+    @Test
+    public void moveExpectedYis1WhenGivenW () {
+        // given
+        String param = "W";
+        int expected = 1;
+
+        // when
+        PlayerCharacter.move(param);
+        int actual = PlayerCharacter.getY();
+
+        // then
+        assertEquals(expected, actual);
     }
 
     @Test

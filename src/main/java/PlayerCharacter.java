@@ -10,6 +10,14 @@ public class PlayerCharacter {
         return y;
     }
 
+    public static void setX (int val) {
+        x = val;
+    }
+
+    public static void  setY (int val) {
+        y = val;
+    }
+
     public static void move(String key) {
         switch (key) {
             case "W" :
