@@ -10,5 +10,6 @@ public class InputWanted {
         name = inputTaker.nextLine();
 
         System.out.println("Hello " + name + "!");
+        System.out.println("Welcome");
     }
 }
