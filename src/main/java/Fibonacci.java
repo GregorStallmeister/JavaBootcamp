@@ -1,8 +1,8 @@
 public class Fibonacci {
 
-    public int getFibonacciNumberAtPosition(int position) {
-        int number = 0;
-        int prevNumber = 0;
+    public long getFibonacciNumberAtPosition(int position) {
+        long number = 0;
+        long prevNumber = 0;
 
         if (position > 0)
             number = 1;
@@ -11,7 +11,7 @@ public class Fibonacci {
             return number;
 
         for (int i = 0; i <= position; i++) {
-            int tempNumber = number;
+            long tempNumber = number;
 
             number = number + prevNumber;
             prevNumber = tempNumber;

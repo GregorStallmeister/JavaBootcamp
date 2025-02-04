@@ -26,7 +26,7 @@ public class Main {
 
         Fibonacci myFib = new Fibonacci();
 
-        for (int i = 0; i < 43; i++) {
+        for (int i = 0; i < 143; i++) {
             System.out.println("Fibonacci number at position " + i + " is " + myFib.getFibonacciNumberAtPosition(i));
         }
 

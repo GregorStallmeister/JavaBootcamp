@@ -12,7 +12,7 @@ public class FibonacciTest {
         Fibonacci myFib = new Fibonacci();
 
         // when
-        int actual = myFib.getFibonacciNumberAtPosition(position);
+        long actual = myFib.getFibonacciNumberAtPosition(position);
 
         // then
         assertEquals(expected, actual);
@@ -26,7 +26,7 @@ public class FibonacciTest {
         Fibonacci myFib = new Fibonacci();
 
         // when
-        int actual = myFib.getFibonacciNumberAtPosition(position);
+        long actual = myFib.getFibonacciNumberAtPosition(position);
 
         // then
         assertEquals(expected, actual);
@@ -40,7 +40,7 @@ public class FibonacciTest {
         Fibonacci myFib = new Fibonacci();
 
         // when
-        int actual = myFib.getFibonacciNumberAtPosition(position);
+        long actual = myFib.getFibonacciNumberAtPosition(position);
 
         // then
         assertEquals(expected, actual);
@@ -54,7 +54,7 @@ public class FibonacciTest {
         Fibonacci myFib = new Fibonacci();
 
         // when
-        int actual = myFib.getFibonacciNumberAtPosition(position);
+        long actual = myFib.getFibonacciNumberAtPosition(position);
 
         // then
         assertEquals(expected, actual);
