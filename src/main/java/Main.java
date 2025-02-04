@@ -4,6 +4,28 @@ import oop.Library;
 public class Main {
     public static void main(String[] args) {
 
+        Book[] myBooks = new Book[12];
+
+        for (int i = 0; i < 6; i++)
+        {
+            Book currentBook = new Book("title_" + i, "author_" + i, "isbn_" + i);
+            myBooks[i] = currentBook;
+        }
+
+        Library myLibrary = new Library(myBooks);
+
+        System.out.println(myLibrary);
+
+        myLibrary.addBook(new Book("Die Losungen 2025", "Herrnhuter Brüdergemeine", "123456"));
+
+        System.out.println();
+        System.out.println(myLibrary);
+
+        myLibrary.removeBook(4);
+
+        System.out.println();
+        System.out.println(myLibrary);
+
 //        Car myCar = new Car();
 //
 //        myCar.start();
@@ -32,18 +54,6 @@ public class Main {
 //        for (int i = 0; i < 12; i++) {
 //            System.out.println("Fibonacci number at position " + i + " is " + myFib.getFibonacciNumberAtPosition(i));
 //        }
-
-        Book[] myBooks = new Book[12];
-
-        for (int i = 0; i < 12; i++)
-        {
-            Book currentBook = new Book("title_" + i, "author_" + i, "isbn_" + i);
-            myBooks[i] = currentBook;
-        }
-
-        Library myLibrary = new Library(myBooks);
-
-        System.out.println(myLibrary);
 
     }
 }
