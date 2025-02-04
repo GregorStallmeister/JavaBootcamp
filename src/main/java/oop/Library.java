@@ -15,8 +15,4 @@ public class Library {
                 "books=" + Arrays.toString(books) +
                 '}';
     }
-
-    public void Books(Book[] pBooks) {
-        books = pBooks;
-    }
 }
