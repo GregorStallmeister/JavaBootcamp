@@ -16,12 +16,14 @@ public class Main {
 //            System.out.println("Car speed: " + myCar2.getSpeed());
 //        }
 
-        Person myPerson1 = new Person("Jane", 12, "female");
-        Person myPerson2 = new Person("Jimmy", 13, "male");
-        Person myPerson3 = new Person("Janno", 11, "fluent");
+//        Person myPerson1 = new Person("Jane", 12, "female");
+//        Person myPerson2 = new Person("Jimmy", 13, "male");
+//        Person myPerson3 = new Person("Janno", 11, "fluent");
+//
+//        myPerson1.introduceYourself();
+//        myPerson2.introduceYourself();
+//        myPerson3.introduceYourself();
 
-        myPerson1.introduceYourself();
-        myPerson2.introduceYourself();
-        myPerson3.introduceYourself();
+
     }
 }
