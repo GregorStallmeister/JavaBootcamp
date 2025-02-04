@@ -24,6 +24,12 @@ public class Main {
 //        myPerson2.introduceYourself();
 //        myPerson3.introduceYourself();
 
+        Fibonacci myFib = new Fibonacci();
+
+        for (int i = 0; i < 43; i++) {
+            System.out.println("Fibonacci number at position " + i + " is " + myFib.getFibonacciNumberAtPosition(i));
+        }
+
 
     }
 }
