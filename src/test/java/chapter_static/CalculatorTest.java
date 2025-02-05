@@ -100,7 +100,7 @@ public class CalculatorTest {
 //        BigDecimal expected = BigDecimal.valueOf(42.420); // 0 will not be in converted value
         BigDecimal expected = num1.multiply(num2);
 
-                // when
+        // when
         BigDecimal actual = Calculator.multiply(num1, num2);
 
         // then
