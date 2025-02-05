@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class VehicleTest {
 
     @Test
-    public void equalsExpectedTrueWhenCompareToCarsIdenticallyInstantiated() {
+    public void equalsExpectedTrueWhenCompare2VehiclesIdenticallyInstantiated() {
         // given
         Vehicle veh1 = new Vehicle("Opel", "Meriva A", 2009);
         Vehicle veh2 = new Vehicle("Opel", "Meriva A", 2009);
@@ -21,7 +21,7 @@ public class VehicleTest {
     }
 
     @Test
-    public void equalsExpectedFalsWhenCompareToCarsIdenticallyButYearInstantiated() {
+    public void equalsExpectedFalsWhenCompare2VehiclesIdenticallyButYearInstantiated() {
         // given
         Vehicle veh1 = new Vehicle("Opel", "Meriva A", 2009);
         Vehicle veh2 = new Vehicle("Opel", "Meriva A", 2007);
