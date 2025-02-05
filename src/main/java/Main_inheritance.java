@@ -1,7 +1,7 @@
+import inheritance.Car;
 import inheritance.Motorcycle;
 import inheritance.Type;
 import inheritance.Vehicle;
-import inheritance.Car;
 
 public class Main_inheritance {
     public static void main(String[] args) {
