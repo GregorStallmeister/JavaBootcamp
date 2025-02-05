@@ -19,6 +19,10 @@ public class Motorcycle extends  Vehicle{
         return myType;
     }
 
+    public String getTypeString() {
+        return myType.toString();
+    }
+
     public void setMyType(Type myType) {
         this.myType = myType;
     }

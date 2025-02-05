@@ -13,5 +13,6 @@ public class Main_inheritance {
 
         Motorcycle myMotorcycle = new Motorcycle("Honda", "Goldwing", 1988, Type.Cruiser);
         System.out.println(myMotorcycle);
+        System.out.println("Type as String: " + myMotorcycle.getTypeString());
     }
 }
