@@ -89,4 +89,31 @@ public class CalculatorTest {
         // then
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void divideExpected7WhenGiven42And6() {
+        // given
+        double dividend = 42;
+        double divisor = 6;
+        double expected = 7;
+
+        // when
+        double actual = Calculator.divide(dividend, divisor);
+
+        // then
+        assertEquals(expected, actual);
+    }
+    @Test
+    public void divideExpected12WhenGiven42And3dot5() {
+        // given
+        double dividend = 42;
+        double divisor = 3.5;
+        double expected = 12;
+
+        // when
+        double actual = Calculator.divide(dividend, divisor);
+
+        // then
+        assertEquals(expected, actual);
+    }
 }
