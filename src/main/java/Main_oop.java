@@ -1,7 +1,7 @@
 import oop.Book;
 import oop.Library;
 
-public class Main {
+public class Main_oop {
     public static void main(String[] args) {
 
         Book[] myBooks = new Book[12];
@@ -16,12 +16,32 @@ public class Main {
 
         System.out.println(myLibrary);
 
-        myLibrary.addBook(new Book("Die Losungen 2025", "Herrnhuter Brüdergemeine", "123456"));
+        try {
+            myLibrary.addBook(new Book("Die Losungen 2025", "Herrnhuter Brüdergemeine", "123456"));
+        }
+        catch (Exception ex) {
+            System.out.println("Error! " + ex.toString());
+        }
 
         System.out.println();
         System.out.println(myLibrary);
 
         myLibrary.removeBook(4);
+
+        System.out.println();
+        System.out.println(myLibrary);
+
+        System.out.println();
+
+        for (int i = 6; i < 14; i++) {
+            Book currentBook = new Book("title_" + i, "author_" + i, "isbn_" + i);
+            try {
+                myLibrary.addBook(currentBook);
+            }
+            catch (Exception ex) {
+                System.out.println("Error! " + ex.toString());
+            }
+        }
 
         System.out.println();
         System.out.println(myLibrary);

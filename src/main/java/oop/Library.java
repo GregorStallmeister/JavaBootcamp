@@ -3,6 +3,7 @@ package oop;
 import java.util.Arrays;
 
 public class Library {
+//    @NonNull
     Book[] books;
 
     public Library(Book[] books) {
@@ -23,7 +24,7 @@ public class Library {
                 '}';
     }
 
-    public void addBook(Book newBook) {
+    public void addBook(Book newBook) throws Exception {
         int posittionNewBook = -1;
 
         for (int i = 0; i < books.length; i++) {
@@ -35,6 +36,8 @@ public class Library {
 
         if (posittionNewBook != -1)
             books[posittionNewBook] = newBook;
+        else
+            throw new Exception("No space for adding a book!");
     }
 
     public void removeBook(int bookPosition) {
