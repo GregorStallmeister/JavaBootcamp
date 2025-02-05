@@ -48,4 +48,13 @@ public class Counters {
                 "instanceCount=" + instanceCount +
                 '}';
     }
+
+    public int incrementInstanceCount() {
+        instanceCount++;
+
+//        if (instanceCount == 100) // for verifying test incrementInstanceCountExpectedIncreasedBy1EveryTimeWhenCalled
+//            return 84;
+
+        return instanceCount;
+    }
 }

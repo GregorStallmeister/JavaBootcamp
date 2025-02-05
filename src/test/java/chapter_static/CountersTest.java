@@ -42,4 +42,22 @@ public class CountersTest {
             expected++;;
         }
     }
+
+    @Test
+    public void incrementInstanceCountExpectedIncreasedBy1EveryTimeWhenCalled() {
+        // given
+        Counters counters = new Counters(42);
+        int expected = 43;
+
+        // when
+        for (int i = 0; i < 100; i++) {
+            int actual = counters.incrementInstanceCount();
+
+            // then
+            assertEquals(expected, actual);
+
+            // for next loop pass
+            expected++;;
+        }
+    }
 }
