@@ -33,4 +33,32 @@ public class CalculatorTest {
         // then
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void subtractExpected42WhenGiven66And24() {
+        // given
+        double minuend = 66;
+        double subtrahend = 24;
+        double expeted = 42;
+
+        // when
+        double actual = Calculator.subtract(minuend, subtrahend);
+
+        // then
+        assertEquals(expeted, actual);
+    }
+
+    @Test
+    public void subtractExpected42Dot42WhenGiven66Dot66And24Dot24() {
+        // given
+        double minuend = 66.66;
+        double subtrahend = 24.24;
+        double expected = 42.42;
+
+        // when
+        double actual = Calculator.subtract(minuend, subtrahend);
+
+        // then
+        assertEquals(expected, actual);
+    }
 }
