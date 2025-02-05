@@ -46,6 +46,7 @@ public class Counters {
     public String toString() {
         return "Counters{" +
                 "instanceCount=" + instanceCount +
+                ", totalCount=" + totalCount +
                 '}';
     }
 
