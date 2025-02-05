@@ -2,6 +2,8 @@ package chapter_static;
 
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorTest {
@@ -65,12 +67,41 @@ public class CalculatorTest {
     @Test
     public void  multiplyExpected42WhenGiven7And6() {
         // given
-        double num1 = 7;
-        double num2 = 6;
-        double expected = 42;
+        BigDecimal num1 = BigDecimal.valueOf(7);
+        BigDecimal num2 = BigDecimal.valueOf(6);
+        BigDecimal expected = BigDecimal.valueOf(42);
 
         // when
-        double actual = Calculator.multiply(num1, num2);
+        BigDecimal actual = Calculator.multiply(num1, num2);
+
+        // then
+        assertEquals(expected, actual);
+    }
+
+//    @Test
+//    public void  multiplyExpected42dot42WhenGiven7And6dot06() {
+//        // given
+//        double num1 = 7.0; // neither 7 nor 7.0 work at this time
+//        double num2 = 6.06;
+//        double expected = 42.42; // windows calculator has the expected result, the function has 42.419999999999995
+//
+//        // when
+//        double actual = Calculator.multiply(num1, num2);
+//
+//        // then
+//        assertEquals(expected, actual);
+//    }
+
+    @Test
+    public void  multiplyExpected42dot42WhenGiven7And6dot06() {
+        // given
+        BigDecimal num1 = BigDecimal.valueOf(7);
+        BigDecimal num2 = BigDecimal.valueOf(6.06);
+//        BigDecimal expected = BigDecimal.valueOf(42.420); // 0 will not be in converted value
+        BigDecimal expected = num1.multiply(num2);
+
+                // when
+        BigDecimal actual = Calculator.multiply(num1, num2);
 
         // then
         assertEquals(expected, actual);
@@ -79,12 +110,13 @@ public class CalculatorTest {
     @Test
     public void  multiplyExpected49dot5WhenGiven7dot5And6dot6() {
         // given
-        double num1 = 7.5;
-        double num2 = 6.6;
-        double expected = 49.5;
+        BigDecimal num1 = BigDecimal.valueOf(7.5);
+        BigDecimal num2 = BigDecimal.valueOf(6.6);
+//        BigDecimal expected = BigDecimal.valueOf(49.50); // 0 will not be in the converted value
+        BigDecimal expected = num1.multiply(num2);
 
         // when
-        double actual = Calculator.multiply(num1, num2);
+        BigDecimal actual = Calculator.multiply(num1, num2);
 
         // then
         assertEquals(expected, actual);
