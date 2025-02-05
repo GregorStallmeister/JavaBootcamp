@@ -47,4 +47,3 @@ public class Motorcycle extends  Vehicle{
     }
 }
 
-enum Type {Chopper, Sportbike, Cruiser}
