@@ -7,23 +7,37 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
 
-public class MusicPlayer implements Playable{
+public class MusicPlayer implements Playable {
     AudioCue myAudiocue;
 
     public MusicPlayer() {
-           }
+    }
 
     @Override
-    public void play()  {
-        URL url = this.getClass().getResource("/songs/Rock Me Now/Pufino - Rock Me Now.mp3");
+    public void play() {
+        URL url = this.getClass().getResource("/songs/RockMeNow/PufinoRockMeNow.Wav");
+        System.out.println("Now we hear: ");
+        System.out.println("Music track: Rock Me Now by Pufino\n" +
+                "Source: https://freetouse.com/music\n" +
+                "Royalty Free Music (Free Download)");
 
         try {
             myAudiocue = AudioCue.makeStereoCue(url, 4);
             myAudiocue.open();
             myAudiocue.play();
-        }
-        catch (Exception ex) {
 
-        }
+//            wait(10000);
+            long startMilliSec = System.currentTimeMillis();
+            while (true) {
+                long currentMilliSec = System.currentTimeMillis();
+
+                if (currentMilliSec - startMilliSec >= 10000)
+                    break;
+            }
+
+            myAudiocue.close();
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.toString());
         }
     }
+}
