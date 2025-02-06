@@ -25,19 +25,25 @@ public class MusicPlayer implements Playable {
             myAudiocue = AudioCue.makeStereoCue(url, 4);
             myAudiocue.open();
             myAudiocue.play();
+            myAudiocue.setVolume(3, 0.4);
+//            myAudiocue.setSpeed(3, 0.5);
 
 //            wait(10000);
-            long startMilliSec = System.currentTimeMillis();
-            while (true) {
-                long currentMilliSec = System.currentTimeMillis();
-
-                if (currentMilliSec - startMilliSec >= 10000)
-                    break;
-            }
-
-            myAudiocue.close();
+//            long startMilliSec = System.currentTimeMillis();
+//            while (true) {
+//                long currentMilliSec = System.currentTimeMillis();
+//
+//                if (currentMilliSec - startMilliSec >= 10000)
+//                    break;
+//            }
+//
+//            myAudiocue.close();
         } catch (Exception ex) {
             System.out.println("Error: " + ex.toString());
         }
+    }
+
+    public void quitPlaying() {
+        myAudiocue.close();
     }
 }
