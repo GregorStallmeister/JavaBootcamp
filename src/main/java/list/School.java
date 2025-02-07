@@ -1,19 +1,21 @@
 package list;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class School {
-    protected List<Student> students;
+    protected Map<Integer, Student> students;
     protected List<Course> courses;
 
     public School() {
-        students = new ArrayList<Student>();
+        students = new HashMap <Integer, Student>();
         courses = new ArrayList<Course>();
     }
 
-    public void addStudent(Student pStudent) {
-        students.add(pStudent);
+    public void addStudent(Student student) {
+        students.put(student.getStudentID(), student);
     }
 
     public Student findStudent(int id) {
@@ -42,7 +44,7 @@ public class School {
 
         returnStringBuilder.append("School{students=\n");
 
-        for (Student currentStudent : students) {
+        for (Student currentStudent : students.values()) {
             returnStringBuilder.append(currentStudent.toString());
             returnStringBuilder.append("\n");
         }
