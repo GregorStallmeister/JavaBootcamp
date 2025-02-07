@@ -50,5 +50,38 @@ public class Main {
         System.out.println("");
         System.out.println("Student 0 particpates in following courses:");
         System.out.println(school.findCoursesOfStudent(0));
+
+        Pharmacy pharmacy = new Pharmacy();
+
+        System.out.println();
+        System.out.println("Now about the pharmacy and its medications:");
+        System.out.println();
+        System.out.println("Pharmacy medications:");
+        pharmacy.printAllMedications();
+        System.out.println("Number of medications: " + pharmacy.getCount());
+
+        System.out.println();
+        System.out.println("Add medications");
+        pharmacy.save(new Medication("Ibu 400", 3.26, true));
+        pharmacy.save(new Medication("Ibu 600", 6.25, false));
+        pharmacy.save(new Medication("Aspirin 200", 2.65, true));
+        System.out.println("Pharmacy medications:");
+        pharmacy.printAllMedications();
+        System.out.println("Number of medications: " + pharmacy.getCount());
+
+        System.out.println();
+        System.out.println("Find Medication Ibu 600");
+        System.out.println(pharmacy.find("Ibu 600"));
+
+        System.out.println();
+        System.out.println("Delete Medication Ibu 600");
+        pharmacy.delete("Ibu 600");
+        System.out.println("Find Medication Ibu 600");
+        System.out.println(pharmacy.find("Ibu 600"));
+
+        System.out.println();
+        System.out.println("Pharmacy medications:");
+        pharmacy.printAllMedications();
+        System.out.println("Number of medications: " + pharmacy.getCount());
     }
 }
