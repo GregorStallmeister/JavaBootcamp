@@ -14,6 +14,10 @@ public class School {
         students.add(pStudent);
     }
 
+    public Student findStudent(int id) {
+        return students.get(id);
+    }
+
     @Override
     public String toString() {
         StringBuilder returnStringBuilder = new StringBuilder();

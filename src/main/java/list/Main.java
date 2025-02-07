@@ -17,5 +17,9 @@ public class Main {
             school.addStudent(currentStudent);
 
         System.out.println(school);
+
+        System.out.println();
+        System.out.println("find student 0");
+        System.out.println(school.findStudent(0));
     }
 }
