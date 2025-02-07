@@ -11,6 +11,11 @@ public class Main {
         students.add(new Student("Maxi", "Musterfrau", 1));
         students.add(new Student("Egon", "Hinterseher", 2));
 
+        School school = new School();
 
+        for (Student currentStudent : students)
+            school.addStudent(currentStudent);
+
+        System.out.println(school);
     }
 }
