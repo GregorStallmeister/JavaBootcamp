@@ -18,6 +18,10 @@ public class School {
         return students.get(id);
     }
 
+    public void removeStudent(Student student) {
+        students.remove(student);
+    }
+
     @Override
     public String toString() {
         StringBuilder returnStringBuilder = new StringBuilder();

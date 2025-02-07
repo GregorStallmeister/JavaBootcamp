@@ -20,6 +20,11 @@ public class Main {
 
         System.out.println();
         System.out.println("find student 0");
-        System.out.println(school.findStudent(0));
+        Student foundStudent = school.findStudent(0);
+        System.out.println(foundStudent);
+        System.out.println("remove this Student");
+        school.removeStudent(foundStudent);
+        System.out.println("School is now:");
+        System.out.println(school);
     }
 }
