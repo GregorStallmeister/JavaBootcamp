@@ -14,4 +14,11 @@ public class Account {
     public void withdrawMoney(BigDecimal withdrawal) {
         accountBalance.subtract(withdrawal);
     }
+
+    public Account(String accountNumber, Client customer) {
+        this.accountNumber = accountNumber;
+        this.customer = customer;
+
+        accountBalance = BigDecimal.ZERO;
+    }
 }
