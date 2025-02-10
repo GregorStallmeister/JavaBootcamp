@@ -3,9 +3,9 @@ package record;
 public class Main {
     public static void main(String[] args) {
 
-        Animal animal1 = new Animal("0", "Doggie", "dog", 15, new Owner("Max", 16, "Testweg 1, 12345 Teststadt"));
-        Animal animal2 = new Animal("1", "Pussy", "cat", 3, new Owner("Moritz", 14, "Testweg 1, 12345 Teststadt"));
-        Animal animal3 = new Animal("2", "Charly", "dog", 4, animal1.owner());
+        Animal animal1 = new Animal("0", "Doggie", new Species("Golden Retriever", 800), 15, new Owner("Max", 16, "Testweg 1, 12345 Teststadt"));
+        Animal animal2 = new Animal("1", "Pussy", new Species("Egyptian Mohaire", 250), 3, new Owner("Moritz", 14, "Testweg 1, 12345 Teststadt"));
+        Animal animal3 = new Animal("2", "Charly", animal1.sepcies(), 4, animal1.owner());
 
         System.out.println("animal 1 equals animal 1: " + animal1.equals(animal1));
         System.out.println("animal 1 equals animal 2: " + animal1.equals(animal2));

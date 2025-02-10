@@ -3,7 +3,7 @@ package record;
 public record Animal(
         String id,
         String name,
-        String sepcies,
+        Species sepcies,
         int age,
         Owner owner
 ) {
