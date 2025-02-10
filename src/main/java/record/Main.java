@@ -1,5 +1,7 @@
 package record;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -14,5 +16,14 @@ public class Main {
         System.out.println(animal1);
         System.out.println(animal2);
         System.out.println(animal3);
+
+        ArrayList<Animal> animals = new ArrayList<Animal>();
+        animals.add(animal1);
+        animals.add(animal2);
+        animals.add(animal3);
+
+        Zoo zoo = new Zoo(animals);
+        System.out.println(zoo);
+        System.out.println("Food amount: " + zoo.calculateFoodAmount() + " grams every day");
     }
 }
