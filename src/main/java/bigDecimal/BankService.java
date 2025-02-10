@@ -26,7 +26,7 @@ public class BankService {
             if (account.accountNumber.equals(accNumberSource))
                 accSource = account;
 
-            if (account.equals(accNumberDestination))
+            if (account.accountNumber.equals(accNumberDestination))
                 accDestination = account;
         }
 
@@ -34,5 +34,12 @@ public class BankService {
             accSource.withdrawMoney(amount);
             accDestination.depositMoney(amount);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "BankService{" +
+                "accounts=" + accounts +
+                '}';
     }
 }

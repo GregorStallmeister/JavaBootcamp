@@ -8,11 +8,11 @@ public class Account {
     Client customer;
 
     public void depositMoney (BigDecimal deposit) {
-        accountBalance.add(deposit);
+        accountBalance = accountBalance.add(deposit);
     }
 
     public void withdrawMoney(BigDecimal withdrawal) {
-        accountBalance.subtract(withdrawal);
+        accountBalance = accountBalance.subtract(withdrawal);
     }
 
     public Account(String accountNumber, Client customer) {
@@ -20,5 +20,14 @@ public class Account {
         this.customer = customer;
 
         accountBalance = BigDecimal.ZERO;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountNumber='" + accountNumber + '\'' +
+                ", accountBalance=" + accountBalance +
+                ", customer=" + customer +
+                '}';
     }
 }
