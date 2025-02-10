@@ -8,6 +8,10 @@ import java.util.List;
 
 public class MiningRepresentationTest {
 
+    public static void main(String[] args) {
+        MiningRepresentation.generate("M..<..B", 12);
+    }
+
     @Test
     public void testNoWorker() {
         String input = "M.......B";
