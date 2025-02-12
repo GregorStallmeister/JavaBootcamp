@@ -5,7 +5,8 @@ import javax.xml.namespace.QName;
 public record Person(
         int ID,
         String name,
-        DaysOfWeek favoriteDay
+        DaysOfWeek favoriteDay,
+        Gender gender
 ) {
     @Override
     public String name() {
