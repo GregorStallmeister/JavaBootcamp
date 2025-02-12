@@ -1,5 +1,8 @@
 package strreams;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -55,5 +58,33 @@ public class Main {
 //                .reduce(0, Integer::sum) // "produces" an Integer, so  no more stream operations possible.
                 .forEach(number -> System.out.print(number + " "));  // forEach is a terminating operation, so...
 //                . no more operations possible, especially no converting into a list
+
+        List<String> lines = new ArrayList<>();
+        try {
+            Stream<String> linesFromReading = Files.lines(Path.of("students.csv"));
+            lines = linesFromReading.toList();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.toString());
+            ;
+        }
+
+        System.out.println();
+        System.out.println();
+        System.out.println("Students raw: ");
+        lines.forEach(System.out::println);
+
+        System.out.println();
+        System.out.println("Students filtered and converted to \"real\" students: ");
+        lines.stream()
+                .skip(Long.valueOf("1"))
+                .distinct()
+                .filter(line -> !line.equals(""))
+                .map(line -> new Student(
+                                line.split(",")[0],
+                                line.split(",")[1],
+                                line.split(",")[2],
+                                Integer.valueOf(line.split(",")[3]))
+                )
+                .forEach(student -> System.out.println(student));
     }
 }
