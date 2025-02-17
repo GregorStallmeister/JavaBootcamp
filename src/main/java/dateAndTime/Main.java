@@ -2,6 +2,7 @@ package dateAndTime;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.time.ZonedDateTime;
 import java.time.chrono.ChronoZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -30,5 +31,14 @@ public class Main {
         System.out.println("Days between 2025-01-27 and 2025-04-23: ");
         System.out.println(ChronoUnit.DAYS.between(ZonedDateTime.parse("2025-01-27T11:15:16.300558100+01:00[Europe/Berlin]"), ZonedDateTime.parse("2025-04-23T11:15:16.300558100+01:00[Europe/Berlin]")));
 
+        Animal dog = new Animal("Otto", ZonedDateTime.parse("2010-01-24T00:00:00.000000000+01:00[Europe/Berlin]"));
+        System.out.println();
+        System.out.println("Days until " + dog.name + "'s next birthday:");
+
+        ZonedDateTime birthdayThisYear = ZonedDateTime.parse(dog.birthday.toString().replaceFirst("[0-9]+", "" + Year.now().getValue()));
+        if (birthdayThisYear.isAfter(ZonedDateTime.now()))
+            System.out.println(ChronoUnit.DAYS.between(ZonedDateTime.now(), birthdayThisYear));
+        else
+            System.out.println(ChronoUnit.DAYS.between(ZonedDateTime.now(), birthdayThisYear.plusYears(1)));
     }
 }
