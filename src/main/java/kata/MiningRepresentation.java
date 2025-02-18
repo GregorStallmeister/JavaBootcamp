@@ -9,46 +9,84 @@ public class MiningRepresentation {
 
     public static List<String> generate(String path, int time) {
         // Ready to work :)
-        List<String> representation = new ArrayList<String>();
+        List<String> representations = new ArrayList<String>();
         Map <Integer, String> currenPathStage = new HashMap<Integer, String>();
         Map <Integer, String> nextPathStage = new HashMap<Integer, String>();
 
         // No Worker
         if (path.matches("M[\\.]+B")) {
             for (int i = 0; i < time; i++)
-                representation.add(path);
+                representations.add(path);
+
+            return representations;
         }
 
         // At least one worker expected: First fill the currenPathStage and the nextPathStage
         for (int i = 0; i < path.length(); i++) {
-            currenPathStage.put(i, "\"" + path.charAt(i)+ "\"");
+            currenPathStage.put(i, "\"" + path.charAt(i) + "\"");
             nextPathStage.put((i), "");
         }
 
-        // The Mine
-        if (currenPathStage.get(0).equals(("*"))) {
-            nextPathStage.put(1, nextPathStage.get(1) + ">");
-            nextPathStage.put(0, "M");
-        }
-        else
-            nextPathStage.put(0, "M");
+        for (int t = 0; t < time; t++) {
+            // Now work the appropriate times
 
-        // The path between mine and base
-        for (int i = 1; i < path.length() - 1; i++) {
-            while (currenPathStage.get(i).contains("<")) {
-                nextPathStage.put(i - 1, nextPathStage.get(i - 1) + "<");
-                currenPathStage.put(i, currenPathStage.get(i).replaceFirst("<", ""));
+            // first create a representation for the current path stage
+            StringBuilder currentRepresentation = new StringBuilder();
 
-                if (i == 1) // at index 0 is the mine, and already a worker is in it!
-                    break;
+            currentRepresentation.append("\\[");
+            currentRepresentation.append(currenPathStage.get(0));
+            for (int j = 1; j < path.length() - 1; j++) {
+                if (currenPathStage.get(j).length() == 1)
+                    currentRepresentation.append(currenPathStage.get(j));
+            }
+            currentRepresentation.append(currenPathStage.get(path.length() - 1));
+            currentRepresentation.append("\\]");
+
+            representations.add(currentRepresentation.toString());
+
+            // The Mine
+            if (currenPathStage.get(0).equals(("*"))) {
+                nextPathStage.put(1, nextPathStage.get(1) + ">");
+                nextPathStage.put(0, "M");
+            } else
+                nextPathStage.put(0, "M");
+
+            // The path between mine and base
+            for (int i = 1; i < path.length() - 1; i++) {
+                while (currenPathStage.get(i).contains("<")) {
+                    nextPathStage.put(i - 1, nextPathStage.get(i - 1) + "<");
+                    currenPathStage.put(i, currenPathStage.get(i).replaceFirst("<", ""));
+
+                    if (i == 1) {
+                        nextPathStage.put(0, "*");
+                        break; // at index 0 is the mine, and now already a worker is in it!
+                    }
+                }
+
+                while (currenPathStage.get(i).contains(">")) {
+                    nextPathStage.put(i + 1, nextPathStage.get(i + 1) + ">");
+                    currenPathStage.put(i, currenPathStage.get(i).replaceFirst(">", ""));
+
+                    if (i == path.length() - 2) {
+                        nextPathStage.put(path.length() - 1, "*");
+                        break; // at the next index is the base, and now already a worker is in it!
+                    }
+                }
+
+                // The Base
+                if (currenPathStage.get(path.length() - 1).contains("*")) {
+                    nextPathStage.put(path.length() -2, nextPathStage.get(path.length() - 2) + "<");
+                    nextPathStage.put(path.length() -1, "B");
+                } else
+                    nextPathStage.put(path.length() -1, "B");
+
             }
 
-
         }
 
-        return representation;
+        return representations;
     }
 
 }
 
-// time: sat 30-45' thinking about it. Mo 30' + 10'
+// time: fr Feb 7: 60' sat Feb 8: 30-45' thinking about it. Mo Feb 10: 30' + 10' Tue Feb 18:
