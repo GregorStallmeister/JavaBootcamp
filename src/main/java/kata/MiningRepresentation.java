@@ -14,7 +14,7 @@ public class MiningRepresentation {
         Map<Integer, String> nextPathStage = new HashMap<>();
 
         // No Worker
-        if (path.matches("M[\\.]+B")) {
+        if (path.matches("M[.]+B")) {
             for (int i = 0; i < time; i++)
                 representations.add(path);
 
