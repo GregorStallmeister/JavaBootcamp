@@ -9,16 +9,16 @@ public class MiningRepresentation {
 
     public static List<String> generate(String path, int time) {
         // Ready to work :)
-        List<String> representations = new ArrayList<>();
+        List<String> representation = new ArrayList<>();
         Map<Integer, String> currenPathStage = new HashMap<>();
         Map<Integer, String> nextPathStage = new HashMap<>();
 
         // No Worker
         if (path.matches("M[.]+B")) {
             for (int i = 0; i < time; i++)
-                representations.add(path);
+                representation.add(path);
 
-            return representations;
+            return representation;
         }
 
         // At least one worker expected: First fill the currenPathStage and the nextPathStage
@@ -30,10 +30,10 @@ public class MiningRepresentation {
             nextPathStage.put((i), "");
         }
 
+        // Now work the desired times
         for (int t = 0; t < time; t++) {
-            // Now work the appropriate times
 
-            // first create a representation for the current path stage
+            // first create a representation for the current path stage and add it to representation list
             StringBuilder currentRepresentation = new StringBuilder();
 
             currentRepresentation.append(currenPathStage.get(0)); // the mine
@@ -55,26 +55,22 @@ public class MiningRepresentation {
 
             currentRepresentation.append(currenPathStage.get(path.length() - 1)); // the base
 
-            representations.add(currentRepresentation.toString());
+            representation.add(currentRepresentation.toString());
+
 
             // Now process the current path stage and figure out the next path stage
 
             // the mine
-            if (currenPathStage.get(0).equals(("*"))) {
+            if (currenPathStage.get(0).equals(("*")))
                 nextPathStage.put(1, nextPathStage.get(1) + ">");
-                nextPathStage.put(0, "M");
-            } else
-                nextPathStage.put(0, "M");
+
+            nextPathStage.put(0, "M");
 
             // The base
-            if (currenPathStage.get(path.length() - 1).contains("*")) {
+            if (currenPathStage.get(path.length() - 1).contains("*"))
                 nextPathStage.put(path.length() - 2, nextPathStage.get(path.length() - 2) + "<");
-                nextPathStage.put(path.length() - 1, "B");
-            }
-//            else if (currenPathStage.get(path.length() - 1).contains(">"))
-//                nextPathStage.put(path.length() - 1, "*");
-            else
-                nextPathStage.put(path.length() - 1, "B");
+
+            nextPathStage.put(path.length() - 1, "B");
 
             // The path between mine and base
             for (int i = 1; i < path.length() - 1; i++) {
@@ -100,7 +96,7 @@ public class MiningRepresentation {
 
             }
 
-            // Now take the next path over as the current path stage for the next loop and generate clear new next path stage
+            // Now take the next path over as the current path stage for the next loop and generate a clear new next path stage
             currenPathStage = nextPathStage;
             nextPathStage = new HashMap<>();
             for (int i = 0; i < path.length(); i++) {
@@ -109,9 +105,12 @@ public class MiningRepresentation {
 
         }
 
-        return representations;
+        // Now it's time to return the representation list
+        return representation;
     }
 
 }
 
 // time: fr Feb 7: 60' sat Feb 8: 30-45' thinking about it. Mo Feb 10: 30' + 10' Tue Feb 18: 65' Wed Feb 19: 34' + 28' + 17'
+// Thu Feb 20 20'
+// all the time: 309' -> 5 h 9'
